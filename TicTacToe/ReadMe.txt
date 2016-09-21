@@ -1,0 +1,138 @@
+Grader: Joseph Kwon (josephkwon@wustl.edu)
+
+Grade: 100/100
+
+-1	Compiler Warning C4018: signed/unsigned mismatch gameboardfun.cpp at line 96,102,114,120,126 (.length() is unsigned. Iterate through for loop with unsigned int i). 
+-1  Make sure to have comments at the top of each file
+-0  Make sure to have header gaurds in ALL header files. just in case
+
++2  Your extra credit works somewhat, as you noted below.
+
+
+========================================================================
+ CSE 332 : Lab 1
+ Name: Pu Chai (431085) Email: chaipu@wustl.edu
+========================================================================
+
+1) Files submitted 
+Common.h GameBoard.h GamePieces.h 
+lab1game.cpp CommonFun.cpp GameBoardFun.cpp GamePiecesFun.cpp lab1game.cpp
+README.txt: readme file
+
+2) Usage:
+lab1game.exe <filename>
+
+
+3) Errors in Compile and execution:
+error 1) Signed/unsigned unmatch
+solution: change int to unsigned int
+error2)  Enum and struct redefinitions
+solution: forgot to define header files.
+
+
+=================================================
+                   TEST
+==================================================
+Use Provided test file: gomoku.txt
+
+ O O O O
+O O O O
+ O O O O
+
+
+X X X X
+ X X X X
+X X X X
+
+Use Provided test file: tic-tac-toe.txt
+H:\My Documents\Visual Studio 2013\Projects\lab1game\Debug>lab1game.exe tic-tac-
+toe.txt
+XXX
+ X
+X
+
+========================================
+           Error Code Test
+========================================
+1): successful trial
+H:\My Documents\Visual Studio 2013\Projects\lab1game\Debug>lab1game.exe tic-tac-
+toe.txt
+echo %errorlevel%
+8 (success_print)
+Summary: excuation with no warnings and errors and gives correct outputs and correct error code
+		 Running as expected
+
+2): type wrong file name
+HH:\My Documents\Visual Studio 2013\Projects\lab1game\Debug>lab1game.exe tict.txt
+cannot open input file
+echo %errorlevel%
+1 (file_cannot_open)
+Summary: typed wrong input file name, and thus the program cannot open the file. Gives correct message
+         and returns correct error code.
+
+3): Wrong number arguments
+H:\My Documents\Visual Studio 2013\Projects\lab1game\Debug>lab1game.exe
+Usage: Lab1game.exe input_file.txt
+(only one argument)
+echo %errorlevel&
+2 (wrong_number_arguments)
+Summary: If pass in unexpected number of arguments (not equals to 2). the programe will return a usage message.
+		 And returns correct error code as expected.
+
+4): cannot find dimensions
+   delete the dimension declaration. The command line prints "Error: Failure Extracting Any Dimension!"
+   error return value is 4(fail_extracting)
+
+5): fail to extract game pieces' coordinates'
+   change the corlor to be invalid color for each string ini input file. The command line prints fail to extract game pieces' coordinates
+   error return value is 7 (not_well_formed)
+
+6): Badly Formatted Lines Added
+    when add "asdfasdfas" into the test file, the program will ignore the unvalid format of string, and continue to extract valid strings,
+
+
+
+	======================================
+	extra Credit
+	====================================
+	partialy work, not work completely.
+	H:\My Documents\Visual Studio 2013\Projects\lab1game\Debug>lab1game.exe gomoku.t
+xt
+64
+ O O O O
+O O O O
+ O O O O
+
+
+X X X X
+ X X X X
+X X X X
+
+0,0blackstone:1,1 black stone; 1,4294967295 black stone; 4294967295,1 black ston
+e;
+2,0blackstone:3,1 black stone; 3,4294967295 black stone; 1,1 black stone; 1,4294
+967295 black stone;
+4,0blackstone:5,1 black stone; 5,4294967295 black stone; 3,1 black stone; 3,4294
+967295 black stone;
+6,0blackstone:7,4294967295 black stone; 5,1 black stone; 5,4294967295 black ston
+e;
+1,1blackstone:2,2 black stone;
+3,1blackstone:4,2 black stone; 2,0 black stone;
+5,1blackstone:6,2 black stone; 4,0 black stone;
+7,1blackstone:6,0 black stone;
+0,2blackstone:4294967295,2 black stone; 1,3 black stone;
+2,2blackstone:3,3 black stone; 1,1 black stone;
+4,2blackstone:5,3 black stone; 3,1 black stone;
+6,2blackstone:5,1 black stone;
+1,5whitestone:2,6 white stone;
+3,5whitestone:4,6 white stone; 2,4 white stone;
+5,5whitestone:6,6 white stone; 4,4 white stone;
+7,5whitestone:6,4 white stone;
+0,6whitestone:4294967295,6 white stone; has no neighboring checkers
+2,6whitestone:1,5 white stone;
+4,6whitestone:3,5 white stone;
+6,6whitestone:5,5 white stone;
+1,7whitestone:has no neighboring checkers
+3,7whitestone:2,6 white stone;
+5,7whitestone:4,6 white stone;
+7,7whitestone:6,6 white stone;
